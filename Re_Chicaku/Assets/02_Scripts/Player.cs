@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private Quaternion lArmAng;
 
     public float power;
+    public float pGravity;
 
     private void Awake()
     {
@@ -35,6 +36,8 @@ public class Player : MonoBehaviour
         playerTrm = transform.position;
         rArmAng = hand.transform.rotation;
         lArmAng = hand2.transform.rotation;
+
+        rigid.AddForce(Vector3.down * pGravity);
     }
 
     void Fire()
@@ -48,7 +51,7 @@ public class Player : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
             bulletController = bullet.GetComponent<Bullet>();
-            bulletController.Launch(dir.normalized, 900);
+            bulletController.Launch(dir.normalized, 9000);
         }
     }
 
@@ -75,13 +78,13 @@ public class Player : MonoBehaviour
 
         if (mouseWorldPosition.x > playerTrm.x)
         {
-            transform.localScale = new Vector3(1, 1, -1);
+            transform.localScale = new Vector3(10, 10, -10);
             hand.transform.localScale = new Vector3(-1, 1, -1);
             hand2.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(10, 10, 10);
             hand.transform.localScale = new Vector3(1, 1, 1);
             hand2.transform.localScale = new Vector3(-1, 1, -1);
         }

@@ -13,10 +13,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if(transform.position.magnitude > 1000f)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, 3f);
     }
 
     public void Launch(Vector3 dir, float speed)
