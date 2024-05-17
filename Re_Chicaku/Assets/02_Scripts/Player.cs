@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             //rigid.AddForce(-mouseWorldPosition * power);
-            Vector3 getVal = new Vector3(-mouseWorldPosition.x, -mouseWorldPosition.y, -mouseWorldPosition.z) * power;
+            Vector3 getVal = new Vector3(playerTrm.x - mouseWorldPosition.x, playerTrm.y - mouseWorldPosition.y, playerTrm.z - mouseWorldPosition.z) * power;
             rigid.velocity = getVal;
         }
     }
