@@ -9,7 +9,11 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject hand;
     [SerializeField] GameObject hand2;
 
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject firePos;
+
     private Rigidbody rigid;
+    private Bullet bulletController;
 
     private Vector3 playerTrm;
     private Quaternion rArmAng;
@@ -36,11 +40,15 @@ public class Player : MonoBehaviour
     void Fire()
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
-        if (Input.GetMouseButton(0))
+        Vector3 dir = mouseWorldPosition - playerTrm;
+        if (Input.GetMouseButtonDown(0))
         {
-            //rigid.AddForce(-mouseWorldPosition * power);
             Vector3 getVal = new Vector3(playerTrm.x - mouseWorldPosition.x, playerTrm.y - mouseWorldPosition.y, playerTrm.z - mouseWorldPosition.z) * power;
             rigid.velocity = getVal;
+
+            GameObject bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
+            bulletController = bullet.GetComponent<Bullet>();
+            bulletController.Launch(dir.normalized, 900);
         }
     }
 
