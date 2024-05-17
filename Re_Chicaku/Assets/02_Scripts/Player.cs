@@ -9,13 +9,18 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject hand;
     [SerializeField] GameObject hand2;
 
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject firePos;
+
     private Rigidbody rigid;
+    private Bullet bulletController;
 
     private Vector3 playerTrm;
     private Quaternion rArmAng;
     private Quaternion lArmAng;
 
     public float power;
+    public float pGravity;
 
     private void Awake()
     {
@@ -31,16 +36,22 @@ public class Player : MonoBehaviour
         playerTrm = transform.position;
         rArmAng = hand.transform.rotation;
         lArmAng = hand2.transform.rotation;
+
+        rigid.AddForce(Vector3.down * pGravity);
     }
 
     void Fire()
     {
         Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition + Vector3.forward * 10f);
-        if (Input.GetMouseButton(0))
+        Vector3 dir = mouseWorldPosition - playerTrm;
+        if (Input.GetMouseButtonDown(0))
         {
-            //rigid.AddForce(-mouseWorldPosition * power);
             Vector3 getVal = new Vector3(playerTrm.x - mouseWorldPosition.x, playerTrm.y - mouseWorldPosition.y, playerTrm.z - mouseWorldPosition.z) * power;
             rigid.velocity = getVal;
+
+            GameObject bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
+            bulletController = bullet.GetComponent<Bullet>();
+            bulletController.Launch(dir.normalized, 9000);
         }
     }
 
@@ -67,13 +78,13 @@ public class Player : MonoBehaviour
 
         if (mouseWorldPosition.x > playerTrm.x)
         {
-            transform.localScale = new Vector3(1, 1, -1);
+            transform.localScale = new Vector3(10, 10, -10);
             hand.transform.localScale = new Vector3(-1, 1, -1);
             hand2.transform.localScale = new Vector3(1, 1, 1);
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(10, 10, 10);
             hand.transform.localScale = new Vector3(1, 1, 1);
             hand2.transform.localScale = new Vector3(-1, 1, -1);
         }
