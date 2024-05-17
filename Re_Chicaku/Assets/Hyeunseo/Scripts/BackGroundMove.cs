@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class BackGroundMove : MonoBehaviour
 {
-    public List<GameObject> backgroundList = new List<GameObject>();
     public GameObject player;
+
+    private void Start()
+    {
+
+    }
 
     void Update()
     {
-        if(player.transform.position.x % 47 == 0)
-        {
-            int i = 0;
-            backgroundList[i].transform.position += new Vector3(141,0,0);
 
-            if (i == 3)
-            {
-                i = 0;
-            }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            print("¥Í¿Ω");
+            transform.position += new Vector3(188, 0, 0);
         }
     }
 }
