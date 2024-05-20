@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3640016196366612, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1380914551}
     - target: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
       propertyPath: m_Name
       value: BackGround (4)
@@ -180,11 +184,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
---- !u!1 &31495734 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
-  m_PrefabInstance: {fileID: 31495733}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &388540228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -193,6 +192,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3640016196366612, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1380914551}
     - target: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
       propertyPath: m_Name
       value: BackGround (2)
@@ -242,11 +245,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
---- !u!1 &388540229 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
-  m_PrefabInstance: {fileID: 388540228}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &412508187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,6 +253,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3640016196366612, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1380914551}
     - target: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
       propertyPath: m_Name
       value: BackGround (3)
@@ -304,11 +306,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
---- !u!1 &412508188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
-  m_PrefabInstance: {fileID: 412508187}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &491999491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -488,57 +485,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1246985247
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1246985249}
-  - component: {fileID: 1246985248}
-  m_Layer: 0
-  m_Name: BackGroundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1246985248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246985247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef49719494086ec4f9f7b6046abf78f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backgroundList:
-  - {fileID: 29009148764564763}
-  - {fileID: 1299540529}
-  - {fileID: 388540229}
-  - {fileID: 412508188}
-  - {fileID: 31495734}
-  player: {fileID: 1380914551}
---- !u!4 &1246985249
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246985247}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.4567795, y: -67.541, z: 144.18375}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1299540528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,6 +493,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3640016196366612, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1380914551}
     - target: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
       propertyPath: m_Name
       value: BackGround (1)
@@ -596,11 +546,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
---- !u!1 &1299540529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
-  m_PrefabInstance: {fileID: 1299540528}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1380914550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -611,6 +556,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1372609716213610, guid: 8fb76780e40bf1142ac84afa008dfa0c, type: 3}
       propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1372609716213610, guid: 8fb76780e40bf1142ac84afa008dfa0c, type: 3}
+      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4207574260043124, guid: 8fb76780e40bf1142ac84afa008dfa0c, type: 3}
@@ -740,7 +689,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 1380914554}
   hand2: {fileID: 1380914552}
+  bulletPrefab: {fileID: 0}
+  firePos: {fileID: 0}
   power: 1
+  pGravity: 0
 --- !u!1 &1428316631
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,11 +998,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1380914551}
---- !u!1 &29009148764564763 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
-  m_PrefabInstance: {fileID: 8395027622794970171}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8395027622794970171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1059,6 +1006,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3640016196366612, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1380914551}
     - target: {fileID: 825529942657913318, guid: 97fdd9ccfc93c2b4dab8a61395990ea1, type: 3}
       propertyPath: m_Name
       value: BackGround
@@ -1121,5 +1072,4 @@ SceneRoots:
   - {fileID: 412508187}
   - {fileID: 31495733}
   - {fileID: 1789055856}
-  - {fileID: 1246985249}
   - {fileID: 1380914550}
