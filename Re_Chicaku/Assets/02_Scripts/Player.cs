@@ -33,6 +33,11 @@ public class Player : MonoBehaviour
 
         Fire();
 
+        if(transform.position.y < -45 || transform.position.y > 32)
+        {
+            PlayerDie();
+        }
+
         playerTrm = transform.position;
         rArmAng = hand.transform.rotation;
         lArmAng = hand2.transform.rotation;
@@ -47,6 +52,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 getVal = new Vector3(playerTrm.x - mouseWorldPosition.x, playerTrm.y - mouseWorldPosition.y, playerTrm.z - mouseWorldPosition.z) * power;
+
             rigid.velocity = getVal;
 
             GameObject bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
@@ -87,6 +93,19 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(10, 10, 10);
             hand.transform.localScale = new Vector3(1, 1, 1);
             hand2.transform.localScale = new Vector3(-1, 1, -1);
+        }
+    }
+
+    void PlayerDie()
+    {
+        transform.gameObject.SetActive(false);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            PlayerDie();
         }
     }
 }
