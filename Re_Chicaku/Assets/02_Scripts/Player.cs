@@ -6,18 +6,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] GameObject hand;
-    [SerializeField] GameObject hand2;
+    [SerializeField] public GameObject hand;
+    [SerializeField] public GameObject hand2;
 
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] GameObject firePos;
+    [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public GameObject firePos;
 
     private Rigidbody rigid;
     private Bullet bulletController;
+    private Item item;
 
     private Vector3 playerTrm;
     private Quaternion rArmAng;
     private Quaternion lArmAng;
+
+    private int bulletSpeed;
 
     public float power;
     public float pGravity;
@@ -25,6 +28,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+
+        bulletSpeed = 9000;
     }
 
     void Update()
@@ -57,7 +62,7 @@ public class Player : MonoBehaviour
 
             GameObject bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
             bulletController = bullet.GetComponent<Bullet>();
-            bulletController.Launch(dir.normalized, 9000);
+            bulletController.Launch(dir.normalized, bulletSpeed);
         }
     }
 

@@ -22,18 +22,18 @@ public class EnemyHP : MonoBehaviour
     {
         if (transform.gameObject.layer == LayerMask.NameToLayer("Building"))
         {
-            if (collision.gameObject.layer == LayerMask.NameToLayer("Rocket"))
+            if (collision.gameObject.CompareTag("Rocket"))
             {
                 Destroy(gameObject);
             }
         }
         else if(transform.gameObject.layer == LayerMask.NameToLayer("Flying"))
         {
-            if(collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+            if(collision.gameObject.CompareTag("Bullet"))
             {
                 currentHP--;
             }
-            else if(collision.gameObject.layer == LayerMask.NameToLayer("Rocket"))
+            else if(collision.gameObject.CompareTag("Rocket"))
             {
                 Destroy(gameObject);
             }
