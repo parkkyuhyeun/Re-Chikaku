@@ -21,7 +21,7 @@ public class BackGroundMove : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             print("¥Í¿Ω");
-            transform.position += new Vector3(188, 0, 0);
+            transform.position += new Vector3(235, 0, 0);
         }
     }
 }
