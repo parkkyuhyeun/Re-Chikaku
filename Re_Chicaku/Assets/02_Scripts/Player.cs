@@ -6,18 +6,21 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] GameObject hand;
-    [SerializeField] GameObject hand2;
+    [SerializeField] public GameObject hand;
+    [SerializeField] public GameObject hand2;
 
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] GameObject firePos;
+    [SerializeField] public GameObject bulletPrefab;
+    [SerializeField] public GameObject firePos;
 
     private Rigidbody rigid;
     private Bullet bulletController;
+    private Item item;
 
     private Vector3 playerTrm;
     private Quaternion rArmAng;
     private Quaternion lArmAng;
+
+    private int bulletSpeed;
 
     public float power;
     public float pGravity;
@@ -25,6 +28,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+
+        bulletSpeed = 9000;
     }
 
     void Update()
@@ -32,6 +37,11 @@ public class Player : MonoBehaviour
         RotateToMouseDir();
 
         Fire();
+
+        if(transform.position.y < -45 || transform.position.y > 32)
+        {
+            PlayerDie();
+        }
 
         playerTrm = transform.position;
         rArmAng = hand.transform.rotation;
@@ -47,11 +57,12 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 getVal = new Vector3(playerTrm.x - mouseWorldPosition.x, playerTrm.y - mouseWorldPosition.y, playerTrm.z - mouseWorldPosition.z) * power;
+
             rigid.velocity = getVal;
 
             GameObject bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
             bulletController = bullet.GetComponent<Bullet>();
-            bulletController.Launch(dir.normalized, 9000);
+            bulletController.Launch(dir.normalized, bulletSpeed);
         }
     }
 
@@ -87,6 +98,19 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector3(10, 10, 10);
             hand.transform.localScale = new Vector3(1, 1, 1);
             hand2.transform.localScale = new Vector3(-1, 1, -1);
+        }
+    }
+
+    void PlayerDie()
+    {
+        transform.gameObject.SetActive(false);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            PlayerDie();
         }
     }
 }

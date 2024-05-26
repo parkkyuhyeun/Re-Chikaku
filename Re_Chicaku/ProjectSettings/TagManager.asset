@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Bullet
+  - Rocket
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -13,10 +17,10 @@ TagManager:
   - UI
   - Player
   - Bullet
-  - 
-  - 
-  - 
-  - 
+  - Building
+  - Flying
+  - R_Item
+  - A_Item
   - 
   - 
   - 
