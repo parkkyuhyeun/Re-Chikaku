@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class MissileMove : MonoBehaviour
 {
-    public float speed = -5f;
+    Rigidbody rigid;
 
-    void Update()
+    public float speed;
+
+    private void Start()
     {
-        transform.position = new Vector3(speed * Time.deltaTime, 0, 0);
+        rigid = GetComponent<Rigidbody>();
+
+    }
+
+    private void Update()
+    {
+        rigid.AddForce(Vector3.left * speed);
+        
     }
 }
