@@ -20,15 +20,11 @@ public class ItemSp : MonoBehaviour
     private void Awake()
     {
         playerS = player.GetComponent<Player>();
+
         r_gun = GameObject.Find("MG - ORANGE");
         a_gun = GameObject.Find("SMG 2 - ORANGE");
         d_gun = GameObject.Find("SMG 2 - ORANGE");
     }
-    private void Start()
-    {
-        r_gun.transform.position = new Vector3(-0.1f, 5f, -0.1f);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

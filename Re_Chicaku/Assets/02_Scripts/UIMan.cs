@@ -21,7 +21,7 @@ public class UIMan : MonoBehaviour
     {
         if(currentScore > bestScore)
         {
-            score_Txt.text = $"Distance : {currentScore} m";
+            score_Txt.text = $"Distance traveled\n{currentScore} M";
             bestScore = currentScore;
         }
     }
