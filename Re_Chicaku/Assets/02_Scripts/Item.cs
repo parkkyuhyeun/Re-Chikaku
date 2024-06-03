@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class Item : MonoBehaviour
+public class ItemSp : MonoBehaviour
 {
     [SerializeField] GameObject r_gun;
     [SerializeField] GameObject a_gun;

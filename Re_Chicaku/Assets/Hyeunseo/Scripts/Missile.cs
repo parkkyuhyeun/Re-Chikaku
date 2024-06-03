@@ -9,9 +9,16 @@ public class Missile : MonoBehaviour
     public float spawnTime = 5f; // 간격
     public float distance = 100f; //플레이어와의 거리
 
+    private Vector3 playerPosition;
+
     private void Start()
     {
         StartCoroutine(SpawnObjectRoutine());
+    }
+
+    private void Update()
+    {
+        playerPosition = player.transform.position;
     }
 
     private IEnumerator SpawnObjectRoutine()
@@ -23,8 +30,8 @@ public class Missile : MonoBehaviour
 
             yield return new WaitForSeconds(spawnTime);
 
-            Vector3 spawnPosition = transform.position + transform.forward * distance;
-            Instantiate(missile, new Vector3(0, height, 0), Quaternion.identity);
+            Vector3 spawnPosition = playerPosition + player.transform.forward * distance;
+            Instantiate(missile, new Vector3(player.transform.position.x, height, player.transform.position.z), Quaternion.identity);
         }
     }
 }

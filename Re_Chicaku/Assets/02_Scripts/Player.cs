@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody rigid;
     private Bullet bulletController;
-    private Item item;
+    private ItemSp item;
 
     private Vector3 playerTrm;
     private Quaternion rArmAng;

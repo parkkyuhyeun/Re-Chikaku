@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public class ItemSpowner : MonoBehaviour
 {
     public GameObject itemPrefab; //소환할 아이템
     public GameObject exItemPrefab; //이전에 소환한 아이템
@@ -10,7 +10,7 @@ public class Item : MonoBehaviour
 
     void Start()
     {
-        spawnInterval = Random.Range(30, 45);
+        spawnInterval = Random.Range(70, 90);
         StartCoroutine(ProduceEnemy());
     }
 
@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
         while (true)
         {
             int height = Random.Range(0, 25); // 높이
-            spawnInterval = Random.Range(30, 45);
+            spawnInterval = Random.Range(70, 90);
 
             GameObject newMapPrefab = Instantiate(itemPrefab, new Vector3(0, height, 0), Quaternion.identity);
             newMapPrefab.transform.localScale = new Vector3(5, 5, 5);
