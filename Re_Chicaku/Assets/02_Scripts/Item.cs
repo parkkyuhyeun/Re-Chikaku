@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Item : MonoBehaviour
 {
@@ -18,6 +20,13 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         playerS = player.GetComponent<Player>();
+        r_gun = GameObject.Find("MG - ORANGE");
+        a_gun = GameObject.Find("SMG 2 - ORANGE");
+        d_gun = GameObject.Find("SMG 2 - ORANGE");
+    }
+    private void Start()
+    {
+        r_gun.transform.position = new Vector3(-0.1f, 5f, -0.1f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,15 +49,11 @@ public class Item : MonoBehaviour
 
     IEnumerator ChangeGun(GameObject gun, GameObject b, float power)
     {
-        gun.SetActive(true);
-        d_gun.SetActive(false);
         playerS.bulletPrefab = b;
         playerS.power = power;
 
         yield return new WaitForSeconds(6f);
 
-        gun.SetActive(false);
-        d_gun.SetActive(true);
         playerS.bulletPrefab = bullet;
         playerS.power = 1f;
 
