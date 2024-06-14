@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
+    public ParticleSystem explosion;
+
     public int enemyHP;
 
     private int currentHP;
@@ -15,7 +17,10 @@ public class EnemyHP : MonoBehaviour
 
     private void Update()
     {
-        if (currentHP <= 0) Destroy(gameObject);
+        if (currentHP <= 0)
+        {
+            StartCoroutine(Break());
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -24,7 +29,7 @@ public class EnemyHP : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Rocket"))
             {
-                Destroy(gameObject);
+                StartCoroutine(Break());
             }
         }
         else if(transform.gameObject.layer == LayerMask.NameToLayer("Flying"))
@@ -35,8 +40,18 @@ public class EnemyHP : MonoBehaviour
             }
             else if(collision.gameObject.CompareTag("Rocket"))
             {
-                Destroy(gameObject);
+                StartCoroutine(Break());
             }
         }
+    }
+
+    IEnumerator Break()
+    {
+        ParticleSystem eff = Instantiate(explosion, transform.position, Quaternion.identity);
+        eff.Stop();
+        Destroy(gameObject);
+        yield return new WaitForSeconds(1f);
+
+
     }
 }

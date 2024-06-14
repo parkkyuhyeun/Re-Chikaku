@@ -18,6 +18,8 @@ public class ItemSpawner : MonoBehaviour
     {
         while (true)
         {
+            yield return new WaitForSeconds(30f);
+
             int height = Random.Range(0, 25); // ≥Ù¿Ã
             spawnInterval = Random.Range(100, 120);
 
@@ -31,7 +33,6 @@ public class ItemSpawner : MonoBehaviour
 
             exItemPrefab = newMapPrefab;
 
-            yield return new WaitForSeconds(0.3f);
         }
     }
 }

@@ -17,6 +17,13 @@ public class MissileMove : MonoBehaviour
     private void Update()
     {
         rigid.AddForce(Vector3.left * speed);
-        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Break"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

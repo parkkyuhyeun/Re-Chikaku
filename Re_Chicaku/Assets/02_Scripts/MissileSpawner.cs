@@ -21,8 +21,7 @@ public class MissileSpawner : MonoBehaviour
 
             int height = Random.Range(10, 25);
 
-            GameObject missiles = Instantiate(missile, new Vector3(spawnPos.transform.position.x, height, spawnPos.transform.position.z), Quaternion.identity);
-            Destroy(missiles, 2.5f);
+            GameObject missiles = Instantiate(missile, new Vector3(spawnPos.transform.position.x, height, spawnPos.transform.position.z), Quaternion.Euler(0,180,-90));
         }
     }
 }

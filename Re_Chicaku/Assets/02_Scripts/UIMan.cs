@@ -51,6 +51,13 @@ public class UIMan : MonoBehaviour
 
     public void Restart()
     {
+        StartCoroutine(Res());
+    }
+
+    IEnumerator Res()
+    {
+        yield return new WaitForSeconds(0.3f);
+
         player.transform.position = new Vector3(-30f, 0f, -1f);
         player.SetActive(true);
         currentScore_Txt.text = "0 M";

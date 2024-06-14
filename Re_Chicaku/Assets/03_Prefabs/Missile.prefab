@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 7895156561837612715}
   - component: {fileID: 7923806541948729696}
   - component: {fileID: 6534222609437744768}
+  - component: {fileID: -3437615536573357616}
   m_Layer: 9
   m_Name: Missile
   m_TagString: Enemy
@@ -192,4 +193,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2afcb1a9586e81e4c8273f03fe9262be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   enemyHP: 2
+--- !u!65 &-3437615536573357616
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5282700141573556105}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
