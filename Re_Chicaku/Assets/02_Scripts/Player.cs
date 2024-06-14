@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField] public GameObject bulletPrefab;
     [SerializeField] public GameObject firePos;
 
+    [SerializeField] public GameObject overView;
+
     private Rigidbody rigid;
     private Bullet bulletController;
     private ItemSp item;
@@ -104,6 +106,7 @@ public class Player : MonoBehaviour
     void PlayerDie()
     {
         transform.gameObject.SetActive(false);
+        overView.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision collision)

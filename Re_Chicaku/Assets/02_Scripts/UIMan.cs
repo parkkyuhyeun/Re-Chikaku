@@ -9,6 +9,8 @@ public class UIMan : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] TextMeshProUGUI currentScore_Txt;
     [SerializeField] TextMeshProUGUI bestScore_Txt;
+    [SerializeField] TextMeshProUGUI overScore_Txt;
+    [SerializeField] GameObject overUI;
 
     private int currentScore = 0;
     private int bestScore = 0;
@@ -30,19 +32,31 @@ public class UIMan : MonoBehaviour
     {
         if(currentScore > checkScore)
         {
-            currentScore_Txt.text = $"Distance traveled\n{currentScore} M";
+            currentScore_Txt.text = $"{currentScore} M";
+            overScore_Txt.text = $"{currentScore} M";
             checkScore = currentScore;
         }
 
         if(currentScore > bestScore)
         {
             bestScore = currentScore;
-            bestScore_Txt.text = $"Best Distance\n{bestScore} M";
+            bestScore_Txt.text = $"{bestScore} M";
         }
     }
 
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void Restart()
+    {
+        player.transform.position = new Vector3(-30f, 0f, -1f);
+        player.SetActive(true);
+        currentScore_Txt.text = "0 M";
+        checkScore = 0;
+        currentScore = 0;
+
+        overUI.SetActive(false);
     }
 }
