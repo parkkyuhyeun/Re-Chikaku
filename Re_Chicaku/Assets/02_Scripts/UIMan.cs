@@ -11,15 +11,20 @@ public class UIMan : MonoBehaviour
     [SerializeField] TextMeshProUGUI bestScore_Txt;
     [SerializeField] TextMeshProUGUI overScore_Txt;
     [SerializeField] GameObject overUI;
+    [SerializeField] GameObject settingUI;
 
     private int currentScore = 0;
     private int bestScore = 0;
     private int checkScore = 0;
 
+    public bool isOpened;
+
     private void Start()
     {
         currentScore = 0;
         checkScore = 0;
+
+        isOpened = false;
     }
 
     private void Update()
@@ -52,6 +57,18 @@ public class UIMan : MonoBehaviour
     public void Restart()
     {
         StartCoroutine(Res());
+    }
+
+    public void Settings()
+    {
+        settingUI.SetActive(true);
+        isOpened = true;
+    }
+
+    public void CloseTap()
+    {
+        settingUI.SetActive(false);
+        isOpened = false;
     }
 
     IEnumerator Res()

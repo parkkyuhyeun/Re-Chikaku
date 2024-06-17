@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Rigidbody rigid;
     private Bullet bulletController;
     private ItemSp item;
+    private UIMan ui;
 
     private Vector3 playerTrm;
     private Quaternion rArmAng;
@@ -40,7 +41,7 @@ public class Player : MonoBehaviour
 
         Fire();
 
-        if(transform.position.y < -45 || transform.position.y > 32)
+        if (transform.position.y < -45 || transform.position.y > 32)
         {
             PlayerDie();
         }

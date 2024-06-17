@@ -6,6 +6,8 @@ public class MissileMove : MonoBehaviour
 {
     Rigidbody rigid;
 
+    UIMan ui;
+
     public float speed;
 
     private void Start()
