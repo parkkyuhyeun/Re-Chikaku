@@ -10,9 +10,12 @@ public class EnemyHP : MonoBehaviour
 
     private int currentHP;
 
+    [SerializeField] public SoundManager soundManager;
+
     private void Start()
     {
         currentHP = enemyHP;
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
     }
 
     private void Update()
@@ -34,7 +37,8 @@ public class EnemyHP : MonoBehaviour
         }
         else if(transform.gameObject.layer == LayerMask.NameToLayer("Flying"))
         {
-            if(collision.gameObject.CompareTag("Bullet"))
+            soundManager.EnemyHit();
+            if (collision.gameObject.CompareTag("Bullet"))
             {
                 currentHP--;
             }

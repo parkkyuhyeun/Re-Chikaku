@@ -14,6 +14,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] public GameObject overView;
 
+    [SerializeField] public SoundManager soundManager;
+    [SerializeField] public BGMManager bgmManager;
+
     private Rigidbody rigid;
     private Bullet bulletController;
     private ItemSp item;
@@ -28,29 +31,36 @@ public class Player : MonoBehaviour
     public float power;
     public float pGravity;
 
+    public bool gameStop = false;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
 
         bulletSpeed = 9000;
+
+        soundManager = GameObject.Find("SoundManager").GetComponent<SoundManager>();
+        bgmManager = GameObject.Find("BGMManager").GetComponent<BGMManager>();
     }
 
     void Update()
     {
-        RotateToMouseDir();
-
-        Fire();
-
-        if (transform.position.y < -45 || transform.position.y > 32)
+        if (!gameStop)
         {
-            PlayerDie();
+            RotateToMouseDir();
+            Fire();
+
+            if (transform.position.y < -45 || transform.position.y > 32)
+            {
+                PlayerDie();
+            }
+
+            playerTrm = transform.position;
+            rArmAng = hand.transform.rotation;
+            lArmAng = hand2.transform.rotation;
+
+            rigid.AddForce(Vector3.down * pGravity);
         }
-
-        playerTrm = transform.position;
-        rArmAng = hand.transform.rotation;
-        lArmAng = hand2.transform.rotation;
-
-        rigid.AddForce(Vector3.down * pGravity);
     }
 
     void Fire()
@@ -59,6 +69,7 @@ public class Player : MonoBehaviour
         Vector3 dir = mouseWorldPosition - playerTrm;
         if (Input.GetMouseButtonDown(0))
         {
+            soundManager.Shooting();
             Vector3 getVal = new Vector3(playerTrm.x - mouseWorldPosition.x, playerTrm.y - mouseWorldPosition.y, playerTrm.z - mouseWorldPosition.z) * power;
 
             rigid.velocity = getVal;
@@ -106,6 +117,8 @@ public class Player : MonoBehaviour
 
     void PlayerDie()
     {
+        bgmManager.GameoverBGM();
+        soundManager.Hit();
         transform.gameObject.SetActive(false);
         overView.SetActive(true);
     }

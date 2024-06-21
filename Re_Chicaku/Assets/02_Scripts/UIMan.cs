@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class UIMan : MonoBehaviour
 {
+    [SerializeField] private BGMManager bgmManager;
+    [SerializeField] private Player playerScript;
+
     [SerializeField] GameObject player;
     [SerializeField] TextMeshProUGUI currentScore_Txt;
     [SerializeField] TextMeshProUGUI bestScore_Txt;
@@ -62,19 +65,23 @@ public class UIMan : MonoBehaviour
     public void Settings()
     {
         settingUI.SetActive(true);
+        playerScript.gameStop = true;
+        Time.timeScale = 0;
         isOpened = true;
     }
 
     public void CloseTap()
     {
         settingUI.SetActive(false);
+        playerScript.gameStop = false;
+        Time.timeScale = 1;
         isOpened = false;
     }
 
     IEnumerator Res()
     {
         yield return new WaitForSeconds(0.3f);
-
+        bgmManager.MainBGM();
         player.transform.position = new Vector3(-30f, 0f, -1f);
         player.SetActive(true);
         currentScore_Txt.text = "0 M";

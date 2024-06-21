@@ -685,8 +685,12 @@ MonoBehaviour:
   hand2: {fileID: 8118277160194520468}
   bulletPrefab: {fileID: 1433751449961349394, guid: e40f5c115840f97429ef4af0f7895ea3, type: 3}
   firePos: {fileID: 0}
+  overView: {fileID: 0}
   power: 1
   pGravity: 1
+  shooting: {fileID: 8300000, guid: 4d07eededa547c24c8764cfaefb692f1, type: 3}
+  missile: {fileID: 8300000, guid: 2d7eddb8686986041837ba3c741d0d8f, type: 3}
+  hit: {fileID: 8300000, guid: a71274e0b07caa54187786407e425441, type: 3}
 --- !u!54 &4418629115999580741
 Rigidbody:
   m_ObjectHideFlags: 0
