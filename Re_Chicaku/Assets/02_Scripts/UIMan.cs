@@ -78,11 +78,16 @@ public class UIMan : MonoBehaviour
         isOpened = false;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     IEnumerator Res()
     {
         yield return new WaitForSeconds(0.3f);
         bgmManager.MainBGM();
-        player.transform.position = new Vector3(-30f, 0f, -1f);
+        player.transform.position = new Vector3(-15f, 0f, -1f);
         player.SetActive(true);
         currentScore_Txt.text = "0 M";
         checkScore = 0;
